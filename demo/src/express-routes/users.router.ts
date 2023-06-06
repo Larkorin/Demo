@@ -2,12 +2,13 @@
 import express, { type Request, type Response } from "express";
 import { collections } from "../services/database.service";
 import type User from "../models/user";
+import { ObjectId } from "mongodb";
 
 // Global Config
 export const usersRouter = express.Router();
 usersRouter.use(express.json());
 
-// GET
+// GET ALL
 
 usersRouter.get("/", async (_req: Request, res: Response) => {
   try {
@@ -18,6 +19,26 @@ usersRouter.get("/", async (_req: Request, res: Response) => {
       res.status(500).send(error.message);
   }
 });
+
+// GET 
+usersRouter.post("/login", async (req: Request, res: Response) => {
+  const name = req.body.name;
+  const lastname = req.body.lastname;
+
+  try {
+    const result = await collections.users?.findOne({ name: name, lastname: lastname });
+
+    if (result) {
+      res.status(200).send(result);
+    } else {
+      res.status(404).send("Usuario no encontrado");
+    }
+  } catch (error: any) {
+    console.error(error);
+    res.status(500).send(error.message);
+  }
+});
+
 
 // POST
 usersRouter.post("/", async (req: Request, res: Response) => {
