@@ -25,7 +25,9 @@ jobs:
         run: |
           cd demo
           npm install
-          npm run dev
+          npm run dev &
+          sleep 5
+          npm run stop
       
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
