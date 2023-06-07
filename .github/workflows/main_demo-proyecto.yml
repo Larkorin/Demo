@@ -21,8 +21,10 @@ jobs:
         with:
           node-version: '12.x'
 
-      - name: npm run dev, build, and test
+      - name: npm install, build, and test
         run: |
+          cd demo
+          npm install
           npm run dev
           npm run build --if-present
           npm run test --if-present
