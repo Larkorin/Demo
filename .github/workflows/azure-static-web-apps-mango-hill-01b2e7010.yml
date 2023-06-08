@@ -8,6 +8,9 @@ on:
     types: [opened, synchronize, reopened, closed]
     branches:
       - main
+env:
+  DB_CONN_STRING : mongodb://demo-componentes:rIYZqzf0HEJQL1h1rkm4v1iKVcePH5CrPMY2xXn5aCX4isdRAp2hiP84slRi60pmkIJiFvOGXwM1ACDbDEo4yQ%3D%3D@demo-componentes.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&maxIdleTimeMS=120000&appName=@demo-componentes@,
+  DB_NAME : DemoDatabase
 
 jobs:
   build_and_deploy_job:
