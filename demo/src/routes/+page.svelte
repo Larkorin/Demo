@@ -16,15 +16,22 @@
 		--gradient-2:{colors[1]};
 		--gradient-2:{colors[2]};
 	">
-  <div class="center">
-    <h1>
-      Welcome
-    </h1>
-    <div>
-      <a href="/login" class="button-style">Log in</a>
-      <a href="/registration" class="button-style">Sign up</a>
+
+    <div class="box water-wave">
+      <h1>
+        Welcome
+      </h1>
+      <h1>
+        Welcome
+      </h1>
     </div>
-  </div>
+
+    <div class="box">
+      <a href="/login" class="button-style">Login</a>
+      <a href="/registration" class="button-style">Register</a>
+    </div>
+
+
 </section>
 
 
@@ -39,9 +46,8 @@
 
 	section {
 		background: linear-gradient(var(--deg),var(--gradient-1), var(--gradient-2));
-    background-repeat: no-repeat;
-    background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     position: fixed;
     width: 100%;
     height: 100%;
@@ -49,22 +55,25 @@
     left:0;
     color: white;
     font-family: 'Roboto Mono', monospace;
-    justify-content: center;
-    display: flex;
 	}
 
-  .center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+  .water-wave {
 
-  h1 {
-    padding: auto;
-    letter-spacing: 0.05em;
-    font-size: 10rem;
-    margin-bottom: 10px;
+    h1 {
+      letter-spacing: 0.05em;
+      font-size: 10rem;
+      position: absolute;
+    }
+
+    h1:nth-child(1) {
+      color: transparent;
+      -webkit-text-stroke: 2px white;
+    }
+
+    h1:nth-child(2) {
+      color: white;
+      animation: animate 4s ease-in-out infinite;
+    } 
   }
 
   .button-style {
@@ -90,6 +99,72 @@
       transform: translateY(4px);
     }
   }
-  
 
+  .box {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    div {
+      align-self: center;
+    }
+  }
+
+  @keyframes animate {
+  0%,
+  100% {
+    clip-path: polygon(
+      0% 45%,
+      16% 44%,
+      33% 50%,
+      54% 60%,
+      70% 61%,
+      84% 59%,
+      100% 52%,
+      100% 100%,
+      0% 100%
+    );
+  }
+
+  50% {
+    clip-path: polygon(
+      0% 60%,
+      15% 65%,
+      34% 66%,
+      51% 62%,
+      67% 50%,
+      84% 45%,
+      100% 46%,
+      100% 100%,
+      0% 100%
+    );
+  }
+}
+
+@media (max-width: 800px) {
+  .water-wave {
+    h1 {
+      font-size: 8.5rem;
+    }
+  }
+
+  .button-style {
+    font-size: 1rem;
+    margin: 10px 65px;
+  }
+}
+
+@media (max-width: 700px) {
+  .water-wave {
+    h1 {
+      font-size: 6.5rem;
+    }
+  }
+
+  .button-style {
+    font-size: 0.9rem;
+    margin: 0 55px;
+  }
+}
 </style>
