@@ -1,62 +1,85 @@
+<script>
+</script>
+
 <body>
-    <div>
-        <form>
-            <h1>Registration</h1>
-            <label for="email">Email</label><br />
-            <input type="email" name="email" /> <br/> <br> 
+	<div class="container">
+		<form>
+			<h2>Registration</h2>
+			<div class="form-pregunta">
+				<label for="email">Email:</label>
+				<input type="email" name="email" /> <br /> <br />
+			</div>
 
-            <label for="name">Name</label> <br />
-            <input type="text" name="name" /> <br /> <br>
+			<div class="form-pregunta">
+				<label for="name">Name:</label>
+				<input type="text" name="name" /> <br /> <br />
+			</div>
 
-            <label for="password">Last Name</label> <br />
-            <input type="lastName" name="password" /> <br /> <br>
+			<div class="form-pregunta">
+				<label for="lastName">Last Name:</label>
+				<input type="text" name="lastName" /> <br /> <br />
+			</div>
 
-            <label for="passwordConfirmation">Password</label>
-            <br />
-            <input type="password" name="passwordConfirmation" /> <br /> <br>
+			<div class="form-pregunta">
+				<label for="password">Password:</label>
+				<input type="password" name="passwordConfirmation" /> <br /> <br />
+			</div>
 
-            <label for="Gender">Gender</label><br>
-            <select id="gender" class="gender-form">
-                <option hidden disabled selected>Select a Gender</option>
-                <option>Femenino</option>
-                <option>Masculino</option>
-            </select> <br> <br>
-            <button class="crear-cuenta">Submit</button>
-        </form>
-    </div>
+			<div class="form-pregunta">
+				<label for="Gender">Gender:</label>
+				<select id="gender" class="gender-form">
+					<option hidden disabled selected>Select a Gender</option>
+					<option>Femenino</option>
+					<option>Masculino</option>
+				</select> <br /> <br />
+			</div>
+			<button class="crear-cuenta">Submit</button>
+		</form>
+	</div>
 </body>
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-    body {
-        display: flex;
-        justify-content: center;
-        font-family: "Roboto", sans-serif;
-        font-size: 20px111;
-    }
-    div {
-        box-sizing: border-box;
-        padding-bottom: 1%;
-        justify-content: center;
-        display: flex;
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+	body {
+		display: flex;
+		justify-content: center;
         width: 100%;
+		font-family: 'Roboto', sans-serif;
+		font-size: 20px;
+	}
+	.container {
+		box-sizing: border-box;
+        padding-left: 2%;
+		padding-bottom: 1%;
+		display: flex;
+		width: 30%;
+        background-color: #f9f9f9;
+        border-radius: 4px;
+        border: solid 1px black;
+	}
+	label {
+		padding-bottom: 3%;
+        display: block;
+	}
+    input, select {
+        border-radius: 6px;
+        padding: 4%;
     }
-    label {
-        margin-bottom: 10%;
+    input {
+        padding-right: 160%;
     }
-    .crear-cuenta {
-        background-color: #FE8E3C;
-        border: solid  2px #000000;
-        margin-top: 4%;
-        padding-top: 3px;
-        padding-bottom: 3px;
-        padding-left: 67px;
-        padding-right: 67px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    .gender-form {
-        padding-left: 15%;
-        padding-right: 15%;
-    }
+	.crear-cuenta {
+		background-color: #fe8e3c;
+		border: solid 2px #000000;
+		margin-top: 4%;
+		padding-top: 3%;
+		padding-bottom: 3%;
+		padding-left: 118%;
+		padding-right: 118%;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+	.gender-form {
+		padding-right: 190%;
+	}
 </style>
