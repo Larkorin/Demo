@@ -8,27 +8,24 @@
 	
 	$: degString = `${deg}deg`
 </script>
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-	</head>
-	<body
+
+	<section
 	style="
 		--deg: {degString};
 		--gradient-1:{colors[0]};
 		--gradient-2:{colors[1]};
 		--gradient-2:{colors[2]};
 	">
-  <h1>
-    Welcome
-  </h1>
-  <div>
-    <button class="button-style">Log in</button>
-    <button class="button-style">Sign in</button>
+  <div class="center">
+    <h1>
+      Welcome
+    </h1>
+    <div>
+      <a href="/login" class="button-style">Log in</a>
+      <a href="/registration" class="button-style">Sign up</a>
+    </div>
   </div>
-	</body>
-</html>
+</section>
 
 
 <style lang="scss">
@@ -40,42 +37,56 @@
     box-sizing: border-box;
   }
 
-	body {
+	section {
 		background: linear-gradient(var(--deg),var(--gradient-1), var(--gradient-2));
     background-repeat: no-repeat;
-    z-index: 1;
-    width: 100%;
     background-size: cover;
     background-position: center;
-    min-height: 100vh;
-    max-width: 400px;
-    color: aliceblue;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    color: white;
+    font-family: 'Roboto Mono', monospace;
+    justify-content: center;
+    display: flex;
 	}
+
+  .center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
   h1 {
     padding: auto;
     letter-spacing: 0.05em;
-    font-size: 7.5rem;
-    font-family: 'Roboto Mono', monospace;  
+    font-size: 10rem;
+    margin-bottom: 10px;
   }
 
   .button-style {
     border-radius: 20px;
     color: white;
     transition-duration: 0.5s;
-    border: 2px solid white;
+    border: 3px solid white;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     transition-duration: 0.4s;
     background-color: transparent;
     padding: 26px 42px;
-    margin: 5px 3px;
+    margin: 20px 75px;
     font-size: 1.5rem;
     cursor: pointer;
 
-    &:active {
+    &:hover {
       box-shadow: 5px 5px white;
+    }
+
+    &:active {
       transform: translateY(4px);
     }
   }
