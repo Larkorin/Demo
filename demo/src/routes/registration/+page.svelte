@@ -1,85 +1,130 @@
 <script>
+	let email = '';
+	let name = '';
+	let lastName = '';
+	let gender = '';
+	let username = '';
+	let password = '';
+
+	function register() {
+		// Lógica para procesar el envío del formulario
+		// console.log('Name: ' + name);
+		// console.log('Last Name: ' + lastName);
+		// console.log('Gender: ' + gender);
+		// console.log('Username: ' + username)
+		// console.log('Email: ' + email);
+		// console.log('Password: ' + password);
+		const data = {
+			name: name,
+			lastName: lastName,
+			gender: gender,
+			username: username,
+			email: email,
+			password: password
+		}
+		fetch('http://localhost:5000/users/', {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: { 'Content-Type': 'application/json' }
+        })
+            .then(function (response) {
+				console.log(response);
+            })
+
+	}
 </script>
 
-<body>
-	<div class="container">
-		<form>
-			<h2>Registration</h2>
-			<div class="form-pregunta">
-				<label for="email">Email:</label>
-				<input type="email" name="email" /> <br /> <br />
-			</div>
+<div class="container">
+	<h2>Registration</h2>
 
-			<div class="form-pregunta">
-				<label for="name">Name:</label>
-				<input type="text" name="name" /> <br /> <br />
-			</div>
+	<form on:submit|preventDefault={register}>
+		<div class="form-group">
+			<label class="form-label" for="name">Namse:</label>
+			<input class="form-input" type="text" id="name" bind:value={name} required />
+		</div>
 
-			<div class="form-pregunta">
-				<label for="lastName">Last Name:</label>
-				<input type="text" name="lastName" /> <br /> <br />
-			</div>
+		<div class="form-group">
+			<label class="form-label" for="lastName">Last Name:</label>
+			<input class="form-input" type="text" id="lastName" bind:value={lastName} required />
+		</div>
 
-			<div class="form-pregunta">
-				<label for="password">Password:</label>
-				<input type="password" name="passwordConfirmation" /> <br /> <br />
-			</div>
+		<div class="form-group">
+			<label class="form-label" for="gender">Gender:</label>
+			<select id="gender" class="form-select" bind:value={gender} required>
+				<option hidden disabled selected>Select a Gender</option>
+				<option>Femenino</option>
+				<option>Masculino</option>
+			</select> 
+		</div>
 
-			<div class="form-pregunta">
-				<label for="Gender">Gender:</label>
-				<select id="gender" class="gender-form">
-					<option hidden disabled selected>Select a Gender</option>
-					<option>Femenino</option>
-					<option>Masculino</option>
-				</select> <br /> <br />
-			</div>
-			<button class="crear-cuenta">Submit</button>
-		</form>
-	</div>
-</body>
+		<div class="form-group">
+			<label class="form-label" for="username">Username:</label>
+			<input class="form-input" type="text" id="username" bind:value={username} required />
+		</div>
+
+		<div class="form-group">
+			<label class="form-label" for="email">Email:</label>
+			<input class="form-input" type="email" id="email" bind:value={email} required />
+		</div>
+
+		<div class="form-group">
+			<label class="form-label" for="password">Password:</label>
+			<input class="form-input" type="password" id="password" bind:value={password} required />
+		</div>
+		<button class="form-button" type="submit">Submit</button>
+	</form>
+</div>
 
 <style>
-	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-	body {
-		display: flex;
-		justify-content: center;
-        width: 100%;
-		font-family: 'Roboto', sans-serif;
-		font-size: 20px;
-	}
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 	.container {
-		box-sizing: border-box;
-        padding-left: 2%;
-		padding-bottom: 1%;
-		display: flex;
-		width: 30%;
-        background-color: #f9f9f9;
-        border-radius: 4px;
-        border: solid 1px black;
+		font-family: 'Roboto', sans-serif;
+		max-width: 400px;
+		margin: 0 auto;
+		padding: 20px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		background-color: #f9f9f9;
 	}
-	label {
-		padding-bottom: 3%;
-        display: block;
+
+	.form-group {
+		margin-bottom: 20px;
 	}
-    input, select {
-        border-radius: 6px;
-        padding: 4%;
-    }
-    input {
-        padding-right: 160%;
-    }
-	.crear-cuenta {
-		background-color: #fe8e3c;
-		border: solid 2px #000000;
-		margin-top: 4%;
-		padding-top: 3%;
-		padding-bottom: 3%;
-		padding-left: 118%;
-		padding-right: 118%;
-		border-radius: 5px;
+
+	.form-label {
+		display: block;
+		font-weight: bold;
+		margin-bottom: 5px;
+	}
+
+	.form-input, .form-select {
+		width: 90%;
+		padding: 10px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		transition: border-color 0.3s ease;
+	}
+	.form-select {
+		width:95%
+	}
+
+	.form-input:focus {
+		outline: none;
+		border-color: #4B97A5;
+	}
+
+	.form-button {
+		width: 96%;
+		padding: 10px;
+		background-color: #BFFBFF;
+		border: solid 1px #000000;
+		border-radius: 4px;
 		cursor: pointer;
+		transition: background-color 0.3s ease;
 	}
-	.gender-form {
-		padding-right: 190%;
+
+	.form-button:hover {
+		background-color: #4B97A5;
 	}
 </style>

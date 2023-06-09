@@ -2,8 +2,11 @@
 import express from "express";
 import { connectToDatabase } from "./services/database.service";
 import { usersRouter } from "./express-routes/users.router";
+import cors from 'cors';
+
 
 const app = express();
+app.use(cors());
 const port = 5000;
 
 connectToDatabase()
@@ -18,3 +21,4 @@ connectToDatabase()
         console.error("Database connection failed", error);
         process.exit();
     });
+
