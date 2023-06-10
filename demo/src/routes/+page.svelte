@@ -167,7 +167,7 @@
 @media (max-width: 500px) {
   .water-wave {
     h1 {
-      font-size: 4.5rem;
+      font-size: 6rem;
     }
   }
 
