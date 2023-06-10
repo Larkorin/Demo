@@ -4,6 +4,7 @@
 		"#4B97A5",
 		"#FE8E3C"
 	]
+
 	let deg = 45
 	
 	$: degString = `${deg}deg`
@@ -16,7 +17,6 @@
 		--gradient-2:{colors[1]};
 		--gradient-2:{colors[2]};
 	">
-
     <div class="box water-wave">
       <h1>
         Welcome
@@ -25,15 +25,11 @@
         Welcome
       </h1>
     </div>
-
     <div class="box">
       <a href="/login" class="button-style">Login</a>
       <a href="/registration" class="button-style">Register</a>
     </div>
-
-
 </section>
-
 
 <style lang="scss">
   @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600&display=swap');
@@ -101,12 +97,12 @@
   }
 
   .box {
-    height: 300px;
+    height: 350px;
     display: flex;
     align-items: center;
     justify-content: center;
 
-    div {
+    & {
       align-self: center;
     }
   }
@@ -150,7 +146,7 @@
   }
 
   .button-style {
-    font-size: 1rem;
+    font-size: 1.3rem;
     margin: 10px 65px;
   }
 }
@@ -163,8 +159,21 @@
   }
 
   .button-style {
-    font-size: 0.9rem;
+    font-size: 1rem;
     margin: 0 55px;
+  }
+}
+
+@media (max-width: 500px) {
+  .water-wave {
+    h1 {
+      font-size: 6rem;
+    }
+  }
+
+  .button-style {
+    font-size: 0.7rem;
+    margin: 0 35px;
   }
 }
 </style>
