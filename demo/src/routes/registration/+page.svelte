@@ -21,16 +21,14 @@
 			username: username,
 			email: email,
 			password: password
-		}
+		};
 		fetch('http://localhost:5000/users/', {
-            method: "POST",
-            body: JSON.stringify(data),
-            headers: { 'Content-Type': 'application/json' }
-        })
-            .then(function (response) {
-				console.log(response);
-            })
-
+			method: 'POST',
+			body: JSON.stringify(data),
+			headers: { 'Content-Type': 'application/json' }
+		}).then(function (response) {
+			console.log(response);
+		});
 	}
 </script>
 
@@ -40,45 +38,80 @@
 	<form on:submit|preventDefault={register}>
 		<div class="form-group">
 			<label class="form-label" for="name">Name</label>
-			<input class="form-input" type="text" id="name" placeholder="Name" bind:value={name} required />
+			<input
+				class="form-input"
+				type="text"
+				id="name"
+				placeholder="Name"
+				bind:value={name}
+				required
+			/>
 		</div>
 
 		<div class="form-group">
 			<label class="form-label" for="lastName">Last Name</label>
-			<input class="form-input" type="text" id="lastName" placeholder="Last Name" bind:value={lastName} required />
+			<input
+				class="form-input"
+				type="text"
+				id="lastName"
+				placeholder="Last Name"
+				bind:value={lastName}
+				required
+			/>
 		</div>
 
 		<div class="form-group">
 			<label class="form-label" for="username">Username</label>
-			<input class="form-input" type="text" id="username" placeholder="Username" bind:value={username} required />
+			<input
+				class="form-input"
+				type="text"
+				id="username"
+				placeholder="Username"
+				bind:value={username}
+				required
+			/>
 		</div>
 
 		<div class="form-group">
 			<label class="form-label" for="email">Email</label>
-			<input class="form-input" type="email" id="email" placeholder="Email" bind:value={email} required />
+			<input
+				class="form-input"
+				type="email"
+				id="email"
+				placeholder="Email"
+				bind:value={email}
+				required
+			/>
 		</div>
 
 		<div class="form-group">
 			<label class="form-label" for="password">Password</label>
-			<input class="form-input" type="password" id="password" placeholder="Password" bind:value={password} required />
+			<input
+				class="form-input"
+				type="password"
+				id="password"
+				placeholder="Password"
+				bind:value={password}
+				required
+			/>
 		</div>
 		<button class="form-button" type="submit">Register</button>
 	</form>
 </div>
 
 <style lang="scss">
-  @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600&display=swap');
 
 	$primary: #006471;
-  $secondary: #4B97A5;
-  $complementary: #FE8E3C;
+	$secondary: #4b97a5;
+	$complementary: #fe8e3c;
 
-	* { 
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
 		font-family: 'Roboto Mono', monospace;
-  }
+	}
 
 	h2 {
 		margin-bottom: 30px;
@@ -113,9 +146,9 @@
 		&:focus {
 			outline: none;
 			background: linear-gradient(white, white) padding-box,
-              		linear-gradient(to right, $primary, $secondary,$complementary) border-box;
-  		border-radius: 7px;
-  		border: 3px solid transparent;
+				linear-gradient(to right, $primary, $secondary, $complementary) border-box;
+			border-radius: 7px;
+			border: 3px solid transparent;
 		}
 	}
 
@@ -125,7 +158,7 @@
 	}
 
 	.form-button {
-    padding: 16px 32px;
+		padding: 16px 32px;
 		margin-top: 10px;
 		border: 3px solid black;
 		border-radius: 8px;

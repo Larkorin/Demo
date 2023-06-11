@@ -15,30 +15,44 @@
 		<form on:submit|preventDefault={handleSubmit}>
 			<div class="form-group">
 				<label class="form-label" for="username">Username</label>
-				<input class="form-input" type="text" id="username" placeholder="Username" bind:value={username} required />
+				<input
+					class="form-input"
+					type="text"
+					id="username"
+					placeholder="Username"
+					bind:value={username}
+					required
+				/>
 			</div>
 			<div class="form-group">
 				<label class="form-label" for="password">Password</label>
-				<input class="form-input" type="password" id="password" placeholder="Password" bind:value={password} required />
+				<input
+					class="form-input"
+					type="password"
+					id="password"
+					placeholder="Password"
+					bind:value={password}
+					required
+				/>
 			</div>
 			<button class="form-button" type="submit">Submit</button>
 		</form>
 	</div>
 </div>
 
-<style lang=scss>
-  @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600&display=swap');
+<style lang="scss">
+	@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600&display=swap');
 
 	$primary: #006471;
-  $secondary: #4B97A5;
-  $complementary: #FE8E3C;
+	$secondary: #4b97a5;
+	$complementary: #fe8e3c;
 
-	* { 
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
 		font-family: 'Roboto Mono', monospace;
-  }
+	}
 
 	h2 {
 		margin-bottom: 30px;
@@ -54,15 +68,15 @@
 	}
 
 	.box {
-    height: 650px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+		height: 650px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 
-    & {
-      align-self: center;
-    }
-  }
+		& {
+			align-self: center;
+		}
+	}
 
 	.form-group {
 		margin-bottom: 20px;
@@ -84,9 +98,9 @@
 		&:focus {
 			outline: none;
 			background: linear-gradient(white, white) padding-box,
-              		linear-gradient(to right, $primary, $secondary,$complementary) border-box;
-  		border-radius: 7px;
-  		border: 3px solid transparent;
+				linear-gradient(to right, $primary, $secondary, $complementary) border-box;
+			border-radius: 7px;
+			border: 3px solid transparent;
 		}
 	}
 
@@ -96,7 +110,7 @@
 	}
 
 	.form-button {
-    padding: 16px 32px;
+		padding: 16px 32px;
 		margin-top: 10px;
 		border: 3px solid black;
 		border-radius: 8px;
