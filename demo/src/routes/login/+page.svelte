@@ -2,17 +2,27 @@
 	let username = '';
 	let password = '';
 
-	function handleSubmit() {
+	function login() {
 		// Lógica para procesar el envío del formulario
-		console.log('Username:', username);
-		console.log('Password:', password);
+		const data = {
+			username: username,
+			password: password
+		}
+		fetch('http://localhost:5000/users/login', {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: { 'Content-Type': 'application/json' }
+        })
+            .then(function (response) {
+				console.log(response);
+            })
 	}
 </script>
 
 <div class="box">
 	<div class="container">
 		<h2>Login</h2>
-		<form on:submit|preventDefault={handleSubmit}>
+		<form on:submit|preventDefault={login}>
 			<div class="form-group">
 				<label class="form-label" for="username">Username</label>
 				<input
