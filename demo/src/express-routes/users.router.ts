@@ -22,11 +22,11 @@ usersRouter.get("/", async (_req: Request, res: Response) => {
 
 // GET 
 usersRouter.post("/login", async (req: Request, res: Response) => {
-  const name = req.body.name;
-  const lastname = req.body.lastname;
+  const username = req.body.username;
+  const password = req.body.password;
 
   try {
-    const result = await collections.users?.findOne({ name: name, lastname: lastname });
+    const result = await collections.users?.findOne({ username: username, password: password });
 
     if (result) {
       res.status(200).send(result);
