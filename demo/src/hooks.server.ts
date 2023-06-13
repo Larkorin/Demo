@@ -7,13 +7,13 @@ import cors from 'cors';
 
 const app = express();
 app.use(cors());
-const port = 5000;
+const port = 10255;
 
 connectToDatabase()
     .then(() => {
         app.use("/users", usersRouter);
 
-        app.listen(port, "127.0.0.1", () => {
+        app.listen(port, "db-demo.mongo.cosmos.azure.com", () => {
             console.log(`Server started at http://localhost:${port}`);
         });
     })
